@@ -1,18 +1,18 @@
 <script>
-  import Button from "../components/Button.svelte";
+  import { Button } from "../components/ui/FormFields";
 
   let count = 0;
 
-  function handleClick() {
-    count += 1;
-  }
+  const incrementCount = () => (count += 1);
 
-  function decrement() {
-    count -= 1;
-  }
+  const decrementCount = () => (count -= 1);
 
   $: doubled = count * 2;
   $: quadrupled = doubled * 2;
+
+  let state = false;
+
+  const toggle = () => (state = !state);
 </script>
 
 <h1>Contact Us Page</h1>
@@ -25,19 +25,19 @@
 
 <p>Welcome to contact us page</p>
 
-<Button onClick={handleClick}>
+<Button on:click={incrementCount}>
   <b>Hello World</b>
 </Button>
 <br />
-<Button variant="blue" onClick={handleClick}>
+<Button variant="blue" on:click={incrementCount}>
   <strong>Proceed</strong>
 </Button>
 <br />
-<Button fullWidth={true} variant="green" onClick={handleClick}>
+<Button fullWidth={true} variant="green" on:click={incrementCount}>
   <b>Proceed</b>
 </Button>
 <br />
-<Button variant="red" onClick={decrement}>Failure</Button>
+<Button variant="red" on:click={toggle}>Failure</Button>
 <br />
 
-<Button disabled={true} onClick={decrement}>Disabled</Button>
+<Button disabled={state} on:click={toggle}>Disabled</Button>

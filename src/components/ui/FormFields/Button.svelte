@@ -94,11 +94,11 @@
     background: grey;
     color: #ccc;
     cursor: not-allowed;
-    border: none;
+    border: 1px solid grey;
   }
 
   button:focus {
-    outline-color: #fff;
+    outline: 1px dotted #0d47a1;
   }
 </style>
 
