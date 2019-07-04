@@ -38,7 +38,7 @@
 </style>
 
 <label for="input-{name}">
-   {label}
+  {label}
   <input id="input-{name}" type="text" bind:value {placeholder} />
   <span>{errorMessage}</span>
 </label>

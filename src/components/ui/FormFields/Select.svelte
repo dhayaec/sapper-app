@@ -79,8 +79,8 @@
 </style>
 
 <select bind:value on:change>
-  <option value=""> {selectLabel} </option>
+  <option value="">{selectLabel}</option>
   {#each options as option}
-    <option value={option}> {option.text} </option>
+    <option value={option}>{option.text}</option>
   {/each}
 </select>

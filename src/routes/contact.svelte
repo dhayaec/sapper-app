@@ -41,3 +41,5 @@
 <br />
 
 <Button disabled={state} on:click={toggle}>Disabled</Button>
+
+<Button on:click={decrementCount}>Disabled</Button>

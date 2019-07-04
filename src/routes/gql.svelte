@@ -31,16 +31,9 @@
 </script>
 
 <script>
-  import { setClient, restore, mutate } from "svelte-apollo";
-  import {
-    Button,
-    Checkbox,
-    Input,
-    Select,
-    Radio,
-    TextArea
-  } from "../components/ui/FormFields";
-  import { clone, sleep } from "../utils/utils";
+  import { restore, mutate } from "svelte-apollo";
+  import { Button, Input } from "../components/ui/FormFields";
+  import { clone } from "../utils/utils";
 
   export let data;
   export let errors;
@@ -71,6 +64,7 @@
       errors = formatErrors(error);
     }
   };
+  console.log(response);
 </script>
 
 <style>

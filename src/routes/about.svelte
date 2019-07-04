@@ -51,7 +51,6 @@
 
   const clearValues = () => {
     v = clone(initialValue);
-    showResults = false;
   };
 
   $: disabled = validate(v);
@@ -75,25 +74,44 @@
 
 <div class="container">
   <div class="input">
-    <Input bind:value={v.name} placeholder="Enter name" />
+    <Input
+      name="name"
+      label="Full Name"
+      bind:value={v.name}
+      placeholder="Enter name" />
   </div>
   <div class="input">
-    <Input bind:value={v.email} placeholder="Enter email" />
+    <Input
+      name="email"
+      label="Email Address"
+      bind:value={v.email}
+      placeholder="Enter email" />
   </div>
   <div class="input">
-    <Select selectLabel="Select Number" {options} bind:value={v.value} />
+    <Select
+      name="age"
+      selectLabel="Select Number"
+      {options}
+      bind:value={v.value} />
   </div>
   <div class="input">
-    <Checkbox bind:checked={v.accepted} label="Accept this checkbox?" />
+    <Checkbox
+      name="accept"
+      bind:checked={v.accepted}
+      label="Accept this checkbox?" />
   </div>
   <div class="input">
     <div class="radio-group">
-      <Radio bind:group={v.gender} value="Male" label="Male" />
-      <Radio bind:group={v.gender} value="Female" label="Female" />
+      <Radio name="gender" bind:group={v.gender} value="Male" label="Male" />
+      <Radio
+        name="gender"
+        bind:group={v.gender}
+        value="Female"
+        label="Female" />
     </div>
   </div>
   <div class="input">
-    <TextArea bind:value={v.about} placeholder="About yourself" />
+    <TextArea name="about" bind:value={v.about} placeholder="About yourself" />
   </div>
   <div class="input">
     <Button {disabled} variant="blue" on:click={handleClick}>Values</Button>
@@ -109,7 +127,7 @@
     <div>
       {#each Object.keys(v) as i}
         <p>
-           {`${upperCase(i)} : ${typeof v[i] === 'object' ? v[i].text : v[i]}`}
+          {`${upperCase(i)} : ${typeof v[i] === 'object' ? v[i].text : v[i]}`}
         </p>
       {/each}
     </div>

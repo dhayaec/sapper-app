@@ -1,8 +1,8 @@
-import ApolloClient, { gql } from 'apollo-boost'
-import fetch from 'isomorphic-fetch'
+import ApolloClient, { gql } from "apollo-boost";
+import fetch from "isomorphic-fetch";
 
 export const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: "http://localhost:4000/graphql",
   fetch,
   onError: ({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
@@ -11,15 +11,15 @@ export const client = new ApolloClient({
         [GraphQL]: ${message}
         Location: ${JSON.stringify(locations)}
         Path: ${path}
-        `)
-      })
+        `);
+      });
     }
     if (networkError) {
-      console.log('Network:' + networkError)
+      console.log("Network:" + networkError);
     }
   },
-  credentials: 'include'
-})
+  credentials: "include"
+});
 
 export const GET_MAIN_CATEGORY = `
   {
@@ -34,7 +34,7 @@ export const GET_MAIN_CATEGORY = `
       }
     }
   }
-`
+`;
 
 export const REGISTER = gql`
   mutation Register($data: RegisterInput!) {
@@ -44,4 +44,4 @@ export const REGISTER = gql`
       email
     }
   }
-`
+`;
