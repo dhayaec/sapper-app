@@ -7,6 +7,7 @@
     border-bottom: 1px solid rgba(255, 62, 0, 0.1);
     font-weight: 300;
     padding: 0 1rem;
+    display: flex;
   }
 
   ul {
@@ -24,6 +25,7 @@
   li {
     display: block;
     float: left;
+    margin: 1rem 0.6rem;
   }
 
   .selected {
@@ -46,9 +48,16 @@
     padding: 1rem 0.5rem;
     display: block;
   }
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 </style>
 
 <nav>
+  <div>
+    <a class="logo" href="/">Logo</a>
+  </div>
   <ul>
     <li>
       <a class={segment === undefined ? 'selected' : ''} href=".">home</a>

@@ -40,3 +40,13 @@ code {
     font-size: 16px;
   }
 }
+
+/* primitive global styles */
+a:hover {
+  color: red;
+}
+
+a,
+a:hover {
+  transition: color 0.3s ease-out 0s;
+}

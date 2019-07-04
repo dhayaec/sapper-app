@@ -1,5 +1,6 @@
 <script>
   import { Button } from "../components/ui/FormFields";
+  import Calculator from "../components/Calculator.svelte";
 
   let count = 0;
 
@@ -43,3 +44,9 @@
 <Button disabled={state} on:click={toggle}>Disabled</Button>
 
 <Button on:click={decrementCount}>Disabled</Button>
+
+<div>
+  <Calculator />
+</div>
+
+<a href="http://www.google.co.in">Google Here</a>

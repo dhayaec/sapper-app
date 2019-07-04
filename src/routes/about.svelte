@@ -35,7 +35,7 @@
     await sleep(1000);
     NProgress.done();
     showResults = true;
-    clearValues();
+    // clearValues();
   };
 
   const assignValues = () => {
@@ -90,6 +90,16 @@
   <div class="input">
     <Select
       name="age"
+      label="Select a number"
+      selectLabel="Select Number"
+      {options}
+      bind:value={v.value} />
+  </div>
+  <div class="input">
+    <Select
+      disabled={true}
+      name="age"
+      label="Select a number"
       selectLabel="Select Number"
       {options}
       bind:value={v.value} />
@@ -127,7 +137,7 @@
     <div>
       {#each Object.keys(v) as i}
         <p>
-          {`${upperCase(i)} : ${typeof v[i] === 'object' ? v[i].text : v[i]}`}
+           {`${upperCase(i)} : ${typeof v[i] === 'object' ? v[i].text : v[i]}`}
         </p>
       {/each}
     </div>

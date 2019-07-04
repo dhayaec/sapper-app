@@ -1,6 +1,6 @@
 <script context="module">
   import { client, REGISTER } from "../graphql";
-  import { formatErrors } from "../utils/utils";
+  import { formatErrors, clone } from "../utils/utils";
   import { gql } from "apollo-boost";
 
   const GET_MAIN_CATEGORY = gql`
@@ -33,7 +33,6 @@
 <script>
   import { restore, mutate } from "svelte-apollo";
   import { Button, Input } from "../components/ui/FormFields";
-  import { clone } from "../utils/utils";
 
   export let data;
   export let errors;

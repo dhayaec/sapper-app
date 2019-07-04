@@ -1,4 +1,4 @@
-import posts from './_poss'
+import posts from './_posts'
 
 const contents = JSON.stringify(
   posts.map(post => {
