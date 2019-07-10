@@ -3,11 +3,14 @@ export const validate = v =>
 export const upperCase = s => s && s.toUpperCase();
 
 export const clone = v => {
-  try {
-    return JSON.parse(JSON.stringify(v));
-  } catch (error) {
-    throw new Error(error);
+  if (v) {
+    try {
+      return JSON.parse(JSON.stringify(v));
+    } catch (error) {
+      throw new Error(error);
+    }
   }
+  return v;
 };
 
 export const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));

@@ -8,6 +8,17 @@
 
   const { preloading } = stores();
   onMount(async () => {
+    const template = `
+    <div class="bar" role="bar">
+      <div class="peg"></div>
+    </div>
+    <div class="spinner" role="spinner">
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+    `;
+    NProgress.configure({
+      template
+    });
     preloading.subscribe(v => (v ? NProgress.start() : NProgress.done()));
   });
 </script>

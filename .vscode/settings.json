@@ -11,5 +11,6 @@
       "language": "svelte",
       "autoFix": true
     }
-  ]
+  ],
+  "prettier.eslintIntegration": true
 }

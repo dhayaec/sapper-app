@@ -98,7 +98,7 @@
   }
 
   button:focus {
-    outline: 1px dotted #0d47a1;
+    outline: 1px dotted var(--primary_color);
   }
 </style>
 

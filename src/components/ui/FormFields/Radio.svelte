@@ -2,6 +2,7 @@
   export let group;
   export let value;
   export let label = "Radio Label";
+  export let name;
   let checked = "";
 </script>
 
@@ -22,7 +23,7 @@
   }
 
   input[type="radio"]:focus {
-    outline: 1px dotted #0d47a1;
+    outline: 1px dotted var(--primary_color);
   }
 
   input[type="radio"]:checked:after {
@@ -32,7 +33,7 @@
     border-radius: 50px;
     position: absolute;
     top: 3px;
-    background: #0d47a1;
+    background: var(--primary_color);
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.3);
     text-shadow: 0px;
     left: 3px;

@@ -1,6 +1,7 @@
 <script>
   export let checked;
   export let label = "Checkbox Label";
+  export let name;
 </script>
 
 <style>
@@ -25,7 +26,7 @@
   }
 
   input[type="checkbox"]:focus {
-    outline: 1px dotted #0d47a1;
+    outline: 1px dotted var(--primary_color);
   }
 
   input[type="checkbox"]:checked {
@@ -42,7 +43,7 @@
     position: absolute;
     top: 0px;
     left: 3px;
-    color: #0d47a1;
+    color: var(--primary_color);
   }
   label {
     height: 2.2rem;

@@ -43,7 +43,7 @@ code {
 
 /* primitive global styles */
 a:hover {
-  color: red;
+  color: var(--primary_color);
 }
 
 a,

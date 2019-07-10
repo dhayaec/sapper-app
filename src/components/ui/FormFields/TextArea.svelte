@@ -20,7 +20,7 @@
   }
   textarea:focus {
     background: #ffffff;
-    border: 1px solid #0d47a1;
+    border: 1px solid var(--primary_color);
     outline: #f0f0f0;
   }
 </style>

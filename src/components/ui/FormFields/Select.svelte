@@ -48,7 +48,7 @@
   }
   /* Focus style */
   select:focus {
-    border: 1px solid #0d47a1;
+    border: 1px solid var(--primary_color);
     /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
     color: #222;
     outline: #f0f0f0;
@@ -82,7 +82,7 @@
 </style>
 
 <label for="input-{name}">
-   {label}
+  {label}
   <select {disabled} aria-disabled={disabled} bind:value on:change>
     <option value="">{selectLabel}</option>
     {#each options as option}

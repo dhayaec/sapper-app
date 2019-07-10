@@ -5,21 +5,24 @@
     Input,
     Select,
     Radio,
-    TextArea
+    TextArea,
+    DateInput
   } from "../components/ui/FormFields";
   import NProgress from "nprogress";
-  import { validate, upperCase, clone, sleep } from "../utils/utils";
+  import { validate, upperCase, sleep } from "../utils/utils";
+  import { fade } from "svelte/transition";
 
   const initialValue = {
     name: "",
     email: "",
     value: "",
+    date: "",
     accepted: false,
     gender: "",
     about: ""
   };
 
-  let v = clone(initialValue);
+  let v = { ...initialValue };
   let showResults = false;
   let isSubmitting = false;
   const options = [
@@ -50,12 +53,31 @@
   };
 
   const clearValues = () => {
-    v = clone(initialValue);
+    v = { ...initialValue };
+    showResults = false;
   };
 
   $: disabled = validate(v);
 
   $: isSubmitting ? (disabled = true) : (isSubmitting = false);
+
+  const dateOptions = {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+    disable: [
+      {
+        from: "2019-04-01",
+        to: "2019-05-01"
+      },
+      {
+        from: "2019-09-01",
+        to: "2019-12-01"
+      }
+    ],
+    defaultDate: new Date(),
+    minDate: new Date()
+  };
 </script>
 
 <style>
@@ -124,6 +146,14 @@
     <TextArea name="about" bind:value={v.about} placeholder="About yourself" />
   </div>
   <div class="input">
+    <DateInput
+      name="date"
+      label="Date"
+      bind:value={v.date}
+      placeholder="Enter Date"
+      options={dateOptions} />
+  </div>
+  <div class="input">
     <Button {disabled} variant="blue" on:click={handleClick}>Values</Button>
   </div>
   <div class="input">
@@ -134,10 +164,10 @@
   </div>
 
   {#if showResults}
-    <div>
+    <div transition:fade>
       {#each Object.keys(v) as i}
         <p>
-           {`${upperCase(i)} : ${typeof v[i] === 'object' ? v[i].text : v[i]}`}
+          {`${upperCase(i)} : ${typeof v[i] === 'object' ? v[i].text : v[i]}`}
         </p>
       {/each}
     </div>

@@ -1,9 +1,13 @@
 <script>
+  import { onMount, afterUpdate } from "svelte";
+  import flatpickr from "flatpickr";
+
   export let value;
   export let placeholder;
   export let label;
   export let name;
   export let errors = [];
+  export let options = {};
 
   let errorMessage = "";
   if (errors.length) {
@@ -11,6 +15,17 @@
       i.path === name ? (errorMessage = i.message) : (errorMessage = "")
     );
   }
+
+  let fp;
+  onMount(() => {
+    fp = flatpickr(document.getElementById(`dateInput${name}`), options);
+  });
+
+  afterUpdate(() => {
+    if (fp && !value) {
+      fp.setDate(value, true);
+    }
+  });
 </script>
 
 <style>
@@ -37,8 +52,8 @@
   }
 </style>
 
-<label for="input-{name}">
+<label for={`dateInput${name}`}>
   {label}
-  <input id="input-{name}" type="text" bind:value {placeholder} />
+  <input id={`dateInput${name}`} type="text" bind:value {placeholder} />
   <span>{errorMessage}</span>
 </label>
